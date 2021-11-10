@@ -3,6 +3,7 @@ import { Row,Container, Col, InputGroup, FormControl, Button } from 'react-boots
 import Navbar from './components/myNavbar.js';
 // import SerachBar from './components/searchMovie.js';
 import MovieCard from './components/movieCard.js';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const [movies, setMovie] = useState([]);
@@ -36,13 +37,14 @@ function App() {
   }
   return (
     <div>
+      <ToastContainer/>
       <Navbar />
       <Container>
         <Row className="mt-3 justify-content-center">
           <Col md={8}>
             <h1 className="text-center">Search Movie</h1>
             <InputGroup className="mb-3">
-              <a href="/" onClick={fetchMovie} className="btn btn-dark" id="kembali">Back</a>
+              <Button variant="dark" onClick={fetchMovie}>Back</Button>
               <FormControl
                 placeholder="Venomm"
                 onKeyUp={keyUpHandle.bind(this)}
